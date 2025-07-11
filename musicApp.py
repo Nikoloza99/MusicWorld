@@ -9,24 +9,19 @@ class MainApp(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # პირველი ფანჯარა — Log in/Register
         self.ui_main = Ui_MainWindow()
         self.ui_main.setupUi(self)
 
-        # მეორე ფანჯარა — Music Selecting
         self.music_window = QtWidgets.QMainWindow()
         self.ui_music = Ui_MusicSelectingWindow()
         self.ui_music.setupUi(self.music_window)
 
-        # მესამე ფანჯარა — My List
         self.list_window = QtWidgets.QMainWindow()
         self.ui_list = Ui_MyMuiscLIstWindow()
         self.ui_list.setupUi(self.list_window)
 
-        # Selected songs list
         self.selected_songs = []
 
-        # ღილაკების მიბმა
         self.ui_main.Register_btn.clicked.connect(self.register_user)
         self.ui_main.LogIn_btn.clicked.connect(self.login_user)
         self.ui_main.Quit_btn.clicked.connect(self.close)
@@ -39,10 +34,8 @@ class MainApp(QtWidgets.QMainWindow):
 
         self.ui_list.Quit_button2.clicked.connect(self.list_window.close)
 
-        # პაროლის ველის დამალვა
         self.ui_main.Password_editline.setEchoMode(QtWidgets.QLineEdit.Password)
 
-        # დაწკაპუნებაზე გასუფთავება
         self.ui_main.Username_editline.mousePressEvent = self.clear_username
         self.ui_main.Password_editline.mousePressEvent = self.clear_password
 
