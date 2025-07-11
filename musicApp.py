@@ -39,7 +39,6 @@ class MainApp(QtWidgets.QMainWindow):
         self.ui_main.Username_editline.mousePressEvent = self.clear_username
         self.ui_main.Password_editline.mousePressEvent = self.clear_password
 
-        # Create MyList DB if not exists
         conn = sqlite3.connect("MyList.db")
         cursor = conn.cursor()
         cursor.execute("""
